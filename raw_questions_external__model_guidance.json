@@ -1,0 +1,850 @@
+// How to provide model guidance: 
+// - Store guidance at questionnaire, tell LC form to ignore it
+// - Guidance can be inserted as supplemental, with metadata alone where sufficient
+// - Question types:
+//   - multi-part: each sub-question needs it's own guidance
+//   - items: can be handled in parent
+{
+  "questions": [
+    {
+      "id": "client.fullName",
+      "section": "aboutYou",
+      "question": "What is your full legal name?",
+      "type": "text",
+      "required": true,
+      "description": "As it appears on legal documents.",
+      "model_instructions": "",
+      "model_examples": ""
+    },
+    {
+      "id": "client.gender",
+      "section": "aboutYou",
+      "question": "What is your gender?",
+      "type": "radio",
+      "required": true,
+      "options": [
+        {
+          "label": "Male",
+          "value": "male"
+        },
+        {
+          "label": "Female",
+          "value": "female"
+        }
+      ]
+    },
+    {
+      "id": "client.DOB",
+      "section": "aboutYou",
+      "question": "What is your date of birth?",
+      "description": "Please enter in MM/DD/YYYY format.",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "client.AKA",
+      "section": "aboutYou",
+      "question": "If you go by another name, please provide it here.",
+      "type": "text"
+    },
+    {
+      "id": "client.address",
+      "section": "aboutYou",
+      "question": "Where do you live?",
+      "type": "multi-part",
+      "required": true,
+      "questions": [
+        {
+          "id": "client.address.city",
+          "question": "City",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "client.address.state",
+          "question": "State",
+          "type": "select",
+          "required": true,
+          "options": [
+            {
+              "label": "Alabama",
+              "value": "Alabama"
+            },
+            {
+              "label": "Alaska",
+              "value": "Alaska"
+            },
+            {
+              "label": "Arizona",
+              "value": "Arizona"
+            },
+            {
+              "label": "Arkansas",
+              "value": "Arkansas"
+            },
+            {
+              "label": "California",
+              "value": "California"
+            },
+            {
+              "label": "Colorado",
+              "value": "Colorado"
+            },
+            {
+              "label": "Connecticut",
+              "value": "Connecticut"
+            },
+            {
+              "label": "District of Columbia",
+              "value": "District of Columbia"
+            },
+            {
+              "label": "Delaware",
+              "value": "Delaware"
+            },
+            {
+              "label": "Florida",
+              "value": "Florida"
+            },
+            {
+              "label": "Georgia",
+              "value": "Georgia"
+            },
+            {
+              "label": "Hawaii",
+              "value": "Hawaii"
+            },
+            {
+              "label": "Idaho",
+              "value": "Idaho"
+            },
+            {
+              "label": "Illinois",
+              "value": "Illinois"
+            },
+            {
+              "label": "Indiana",
+              "value": "Indiana"
+            },
+            {
+              "label": "Iowa",
+              "value": "Iowa"
+            },
+            {
+              "label": "Kansas",
+              "value": "Kansas"
+            },
+            {
+              "label": "Kentucky",
+              "value": "Kentucky"
+            },
+            {
+              "label": "Louisiana",
+              "value": "Louisiana"
+            },
+            {
+              "label": "Maine",
+              "value": "Maine"
+            },
+            {
+              "label": "Maryland",
+              "value": "Maryland"
+            },
+            {
+              "label": "Massachusetts",
+              "value": "Massachusetts"
+            },
+            {
+              "label": "Michigan",
+              "value": "Michigan"
+            },
+            {
+              "label": "Minnesota",
+              "value": "Minnesota"
+            },
+            {
+              "label": "Mississippi",
+              "value": "Mississippi"
+            },
+            {
+              "label": "Missouri",
+              "value": "Missouri"
+            },
+            {
+              "label": "Montana",
+              "value": "Montana"
+            },
+            {
+              "label": "Nebraska",
+              "value": "Nebraska"
+            },
+            {
+              "label": "Nevada",
+              "value": "Nevada"
+            },
+            {
+              "label": "New Hampshire",
+              "value": "New Hampshire"
+            },
+            {
+              "label": "New Jersey",
+              "value": "New Jersey"
+            },
+            {
+              "label": "New Mexico",
+              "value": "New Mexico"
+            },
+            {
+              "label": "New York",
+              "value": "New York"
+            },
+            {
+              "label": "North Carolina",
+              "value": "North Carolina"
+            },
+            {
+              "label": "North Dakota",
+              "value": "North Dakota"
+            },
+            {
+              "label": "Ohio",
+              "value": "Ohio"
+            },
+            {
+              "label": "Oklahoma",
+              "value": "Oklahoma"
+            },
+            {
+              "label": "Oregon",
+              "value": "Oregon"
+            },
+            {
+              "label": "Pennsylvania",
+              "value": "Pennsylvania"
+            },
+            {
+              "label": "Rhode Island",
+              "value": "Rhode Island"
+            },
+            {
+              "label": "South Carolina",
+              "value": "South Carolina"
+            },
+            {
+              "label": "South Dakota",
+              "value": "South Dakota"
+            },
+            {
+              "label": "Tennessee",
+              "value": "Tennessee"
+            },
+            {
+              "label": "Texas",
+              "value": "Texas"
+            },
+            {
+              "label": "Utah",
+              "value": "Utah"
+            },
+            {
+              "label": "Vermont",
+              "value": "Vermont"
+            },
+            {
+              "label": "Virginia",
+              "value": "Virginia"
+            },
+            {
+              "label": "Washington",
+              "value": "Washington"
+            },
+            {
+              "label": "West Virginia",
+              "value": "West Virginia"
+            },
+            {
+              "label": "Wisconsin",
+              "value": "Wisconsin"
+            },
+            {
+              "label": "Wyoming",
+              "value": "Wyoming"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "client.email",
+      "section": "aboutYou",
+      "question": "What is your email address?",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "client.maritalStatus",
+      "section": "yourFamily",
+      "question": "What is your marital status?",
+      "type": "radio",
+      "required": true,
+      "options": [
+        {
+          "label": "Married",
+          "value": "married"
+        },
+        {
+          "label": "Never married",
+          "value": "single"
+        },
+        {
+          "label": "Divorced",
+          "value": "divorced"
+        },
+        {
+          "label": "Widowed",
+          "value": "widowed"
+        }
+      ]
+    },
+    {
+      "id": "client.DOM",
+      "section": "yourFamily",
+      "question": "When did you get married?",
+      "description": "Please enter in MM/DD/YYYY format.",
+      "type": "date",
+      "required": true,
+      "onlyAvailableIf": {
+        "questionId": "client.maritalStatus",
+        "answer": "married"
+      }
+    },
+    {
+      "id": "spouse.fullName",
+      "section": "yourFamily",
+      "question": "What is your spouse's full name?",
+      "type": "text",
+      "required": true,
+      "onlyAvailableIf": {
+        "questionId": "client.maritalStatus",
+        "answer": "married"
+      }
+    },
+    {
+      "id": "spouse.AKA",
+      "section": "yourFamily",
+      "question": "If your spouse goes by another name, please provide it here.",
+      "type": "text",
+      "onlyAvailableIf": {
+        "questionId": "client.maritalStatus",
+        "answer": "married"
+      }
+    },
+    {
+      "id": "spouse.gender",
+      "section": "yourFamily",
+      "question": "What is your spouse's gender?",
+      "type": "radio",
+      "required": true,
+      "onlyAvailableIf": {
+        "questionId": "client.maritalStatus",
+        "answer": "married"
+      },
+      "options": [
+        {
+          "label": "Male",
+          "value": "male"
+        },
+        {
+          "label": "Female",
+          "value": "female"
+        }
+      ]
+    },
+    {
+      "id": "spouse.DOB",
+      "section": "yourFamily",
+      "question": "What is your spouse's date of birth?",
+      "description": "Please enter in MM/DD/YYYY format.",
+      "type": "date",
+      "required": true,
+      "onlyAvailableIf": {
+        "questionId": "client.maritalStatus",
+        "answer": "married"
+      }
+    },
+    {
+      "id": "client.hasChildren",
+      "section": "yourFamily",
+      "question": "Do you have any children?",
+      "description": "Include adult children, deceased children, stepchildren, biological children, and adopted children.",
+      "required": true,
+      "type": "radio",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "Not yet, but might in the future",
+          "value": "maybe"
+        },
+        {
+          "label": "No, and don't expect to have any",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "id": "client.children",
+      "section": "yourFamily",
+      "question": "List your children",
+      "description": "All children identified here will appear as children in your will (and in your spouse's will, if you are married and end up creating a will for your spouse).",
+      "type": "items",
+      "label": "Child",
+      "onlyAvailableIf": {
+        "questionId": "client.hasChildren",
+        "answer": "yes"
+      },
+      "model_instructions":"",
+      "model_examples":"",
+      "questions": [
+        {
+          "id": "client.children.fullName",
+          "question": "Child's full name",
+          "type": "text",
+          "required": true,
+          "model_instructions":"",
+          "model_examples":""
+        },
+        {
+          "id": "client.children.DOB",
+          "question": "Date of birth",
+          "description": "Please enter in MM/DD/YYYY format.",
+          "type": "date",
+          "required": true
+        },
+        {
+          "id": "client.children.whose",
+          "question": "Whose child is this?",
+          "type": "radio",
+          "required": true,
+          "options": [
+            {
+              "label": "Yours",
+              "value": "yours"
+            },
+            {
+              "label": "Your spouse's",
+              "value": "spouse"
+            },
+            {
+              "label": "Both of yours",
+              "value": "both"
+            }
+          ],
+          "onlyAvailableIf": {
+            "questionId": "client.maritalStatus",
+            "answer": ["married", "widowed"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "representatives.incapacity",
+      "section": "yourRepresentatives",
+      "question": "Your financial representatives during incapacity",
+      "description": "This is the person you want to handle your financial affairs if you become unable to do so.",
+      "type": "multi-part",
+      "questions": [
+        {
+          "id": "representatives.incapacity.primary.fullName",
+          "question": "Representative's full name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "representatives.incapacity.hasAlternates",
+          "question": "Would you like to appoint alternates if the above-named person isn't available?",
+          "type": "yes-no",
+          "required": true
+        },
+        {
+          "id": "representatives.incapacity.alternates",
+          "type": "items",
+          "label": "Alternate Representative",
+          "onlyAvailableIf": {
+            "questionId": "representatives.incapacity.hasAlternates",
+            "answer": true
+          },
+          "description": "List their full names in order of preference.",
+          "questions": [
+            {
+              "id": "representatives.incapacity.alternates.fullName",
+              "question": "Full name",
+              "type": "text",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "representatives.afterDeath",
+      "section": "yourRepresentatives",
+      "question": "Your representatives after death",
+      "description": "This is the person you want to handle your financial affairs after you pass away.",
+      "type": "multi-part",
+      "questions": [
+        {
+          "id": "representatives.afterDeath.primary.fullName",
+          "question": "Representative's full name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "representatives.afterDeath.hasAlternates",
+          "question": "Would you like to appoint alternates if the above-named person isn't available?",
+          "type": "yes-no",
+          "required": true
+        },
+        {
+          "id": "representatives.afterDeath.alternates",
+          "type": "items",
+          "label": "Alternate Representative",
+          "onlyAvailableIf": {
+            "questionId": "representatives.afterDeath.hasAlternates",
+            "answer": true
+          },
+          "description": "List their full names in order of preference.",
+          "questions": [
+            {
+              "id": "representatives.afterDeath.alternates.fullName",
+              "question": "Full name",
+              "type": "text",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "representatives.healthcare",
+      "section": "yourRepresentatives",
+      "question": "Your healthcare representatives",
+      "description": "This is the person you want to handle your healthcare decisions if you become unable to do so.",
+      "type": "multi-part",
+      "questions": [
+        {
+          "id": "representatives.healthcare.primary.fullName",
+          "question": "Representative's full name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "representatives.healthcare.hasAlternates",
+          "question": "Would you like to appoint alternates if the above-named person isn't available?",
+          "type": "yes-no",
+          "required": true
+        },
+        {
+          "id": "representatives.healthcare.alternates",
+          "type": "items",
+          "label": "Alternate Representative",
+          "onlyAvailableIf": {
+            "questionId": "representatives.healthcare.hasAlternates",
+            "answer": true
+          },
+          "description": "List their full names in order of preference.",
+          "questions": [
+            {
+              "id": "representatives.healthcare.alternates.fullName",
+              "question": "Full name",
+              "type": "text",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guardiansForChildren",
+      "section": "yourWishes",
+      "question": "Guardians for your children",
+      "type": "multi-part",
+      "onlyAvailableIf": {
+        "questionId": "client.hasChildren",
+        "answer": ["yes", "maybe"]
+      },
+      "questions": [
+        {
+          "id": "guardiansForChildren.hasGuardians",
+          "question": "Would you like to appoint a guardian for your children?",
+          "type": "yes-no",
+          "required": true
+        },
+        {
+          "id": "guardiansForChildren.guardians",
+          "question": "Identify guardians for your children",
+          "description": "List your guardians in order of preference.",
+          "type": "items",
+          "label": "Guardian",
+          "onlyAvailableIf": {
+            "questionId": "guardiansForChildren.hasGuardians",
+            "answer": true
+          },
+          "questions": [
+            {
+              "id": "guardiansForChildren.guardians.fullName",
+              "question": "Full name",
+              "type": "text",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "client.hasPetProvisions",
+      "section": "yourWishes",
+      "question": "Do you want to include provisions for the care of pets?",
+      "description": "If you have pets when you pass away, these provisions will allow you to appoint a caretaker for your pets and set aside a dollar amount for their care.",
+      "required": true,
+      "type": "radio",
+      "options": [
+        {
+          "label": "Yes, and identify my pets",
+          "value": "yesIdentify"
+        },
+        {
+          "label": "Yes, but don't identify my pets",
+          "value": "yesDontIdentify"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "id": "client.pets",
+      "section": "yourWishes",
+      "question": "Identify your pets",
+      "type": "items",
+      "label": "Pet",
+      "onlyAvailableIf": {
+        "questionId": "client.hasPetProvisions",
+        "answer": "yesIdentify"
+      },
+      "questions": [
+        {
+          "id": "client.pets.name",
+          "question": "Pet's name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "client.pets.type",
+          "question": "Type of pet",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "client.petsCaretaker",
+      "section": "yourWishes",
+      "question": "Who do you want to take care of your pets?",
+      "description": "Pet caretaker's full name",
+      "type": "text",
+      "required": true,
+      "onlyAvailableIf": {
+        "questionId": "client.hasPetProvisions",
+        "answer": ["yesIdentify", "yesDontIdentify"]
+      }
+    },
+    {
+      "id": "client.petsCareAmount",
+      "section": "yourWishes",
+      "question": "How much would you like to allocate for their care?",
+      "type": "text",
+      "required": true,
+      "onlyAvailableIf": {
+        "questionId": "client.hasPetProvisions",
+        "answer": ["yesIdentify", "yesDontIdentify"]
+      }
+    },
+    {
+      "id": "maintainInHome",
+      "section": "yourWishes",
+      "question": "Do you want in-home assisted living or nursing care?",
+      "description": "Answer yes if you want assisted living or nursing care, including round-the-clock care, to be provided in your home if it's reasonable to do so under the circumstances.",
+      "type": "yes-no",
+      "required": true
+    },
+    {
+      "id": "remainsPreference",
+      "section": "yourWishes",
+      "question": "Do you have any preference for handling your remains?",
+      "type": "radio",
+      "required": true,
+      "options": [
+        {
+          "label": "Cremation",
+          "value": "cremation"
+        },
+        {
+          "label": "Burial",
+          "value": "burial"
+        },
+        {
+          "label": "No preference",
+          "value": "no-preference"
+        }
+      ]
+    },
+    {
+      "id": "hasSpecificGifts",
+      "section": "estateDistribution",
+      "question": "Would you like to leave gifts of specific items or dollar amounts to anyone?",
+      "type": "yes-no",
+      "required": true
+    },
+    {
+      "id": "specificGifts",
+      "section": "estateDistribution",
+      "question": "Please describe what you would like to leave and to whom.",
+      "type": "items",
+      "label": "Gift",
+      "onlyAvailableIf": {
+        "questionId": "hasSpecificGifts",
+        "answer": true
+      },
+      "questions": [
+        {
+          "id": "specificGifts.description",
+          "type": "text",
+          "question": "Describe the gift",
+          "description": "Item or dollar amount",
+          "required": true
+        },
+        {
+          "id": "specificGifts.beneficiary.name",
+          "type": "text",
+          "question": "Who would you like to leave this gift to?",
+          "description": "Beneficiary's full name",
+          "required": true
+        },
+        {
+          "id": "specificGifts.beneficiary.type",
+          "type": "radio",
+          "question": "Is this beneficiary an individual or charitable organization?",
+          "required": true,
+          "options": [
+            {
+              "label": "Individual",
+              "value": "individual"
+            },
+            {
+              "label": "Charitable organization",
+              "value": "charity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "residuaryDistribution",
+      "section": "estateDistribution",
+      "question": "How would you like to distribute the remainder of your estate?",
+      "description": "If you are married, the remainder of your estate will go to your spouse. If you are not married, or if your spouse is deceased, how would you like to distribute the remainder of your estate?",
+      "type": "radio",
+      "required": true,
+      "options": [
+        {
+          "label": "To my children",
+          "value": "children"
+        },
+        {
+          "label": "To named beneficiaries",
+          "value": "named"
+        }
+      ]
+    },
+    {
+      "id": "residuaryNamedBeneficiaries",
+      "section": "estateDistribution",
+      "question": "Please specify the named beneficiaries and the shares they should receive.",
+      "type": "items",
+      "onlyAvailableIf": {
+        "questionId": "residuaryDistribution",
+        "answer": "named"
+      },
+      "questions": [
+        {
+          "id": "residuaryNamedBeneficiaries.name",
+          "type": "text",
+          "question": "Beneficiary name",
+          "description": "For an individual, enter their full name. For a charitable organization, enter the organization's name. For charitable organizations, use enough specificity to identify the charity.",
+          "required": true
+        },
+        {
+          "id": "residuaryNamedBeneficiaries.share",
+          "type": "text",
+          "question": "Share of the estate",
+          "description": "Enter the share of the estate for the beneficiary (e.g., \"50%\" or \"one-half\" or \"1/2\").",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "specialSituations",
+      "section": "specialSituations",
+      "question": "Indicate if any of the following special situations apply to you.",
+      "description": "We will include a document in your package about these special situations, highlighting the ones that apply to you.",
+      "type": "checkbox",
+      "required": false,
+      "options": [
+        {
+          "label": "I have underage beneficiaries",
+          "value": "underageBenes"
+        },
+        {
+          "label": "I have stepchildren",
+          "value": "stepchildren"
+        },
+        {
+          "label": "I have a beneficiary with special needs",
+          "value": "specialNeedsBenes"
+        },
+        {
+          "label": "I have descendants adopted out of the family",
+          "value": "adoptedDescendants"
+        },
+        {
+          "label": "I have a noncitizen spouse",
+          "value": "nonCitizenSpouse"
+        },
+        {
+          "label": "I have obligations from a prior marriage",
+          "value": "obligationsFromPriorMarriage"
+        },
+        {
+          "label": "I own a business or rental property",
+          "value": "businessOrRentalProperty"
+        },
+        {
+          "label": "I own foreign assets",
+          "value": "foreignAssets"
+        },
+        {
+          "label": "I want to protect assets from creditors",
+          "value": "protectAssets"
+        },
+        {
+          "label": "I am concerned about death taxes",
+          "value": "concernsAboutDeathTaxes"
+        }
+      ]
+    }
+  ]
+}
