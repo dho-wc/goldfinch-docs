@@ -303,7 +303,11 @@
       ]
     },
     {
-      // === TODO === The reps structure seems worthy of a refactor, but that would have significant impact on the templates
+      // === TODO === 
+      // The reps structure needs a refactor. Flatten questions to …
+      // - Primary Name
+      // - Alternates t/f
+      // - Alternate names array
       // Also … I may not have this perfect -- worth double-checking id formats
       "id": "representatives_incapacity",
       "section": "yourRepresentatives",
@@ -312,29 +316,29 @@
       "type": "multi-part",
       "questions": [
         {
-          "id": "representatives_incapacity_primary_fullName",
+          "id": "representatives_incapacity.primary_fullName",
           "question": "Representative's full name",
           "type": "text",
           "required": true
         },
         {
-          "id": "representatives_incapacity_hasAlternates",
+          "id": "representatives_incapacity.hasAlternates",
           "question": "Would you like to appoint alternates if the above-named person isn't available?",
           "type": "yes-no",
           "required": true
         },
         {
-          "id": "representatives_incapacity_alternates",
+          "id": "representatives_incapacity.alternates",
           "type": "items",
           "label": "Alternate Representative",
           "onlyAvailableIf": {
-            "questionId": "representatives_incapacity_hasAlternates",
+            "questionId": "representatives_incapacity.hasAlternates",
             "answer": true
           },
           "description": "List their full names in order of preference.",
           "questions": [
             {
-              "id": "representatives_incapacity_alternates.fullName",
+              "id": "representatives_incapacity.alternates.fullName",
               "question": "Full name",
               "type": "text",
               "required": true
@@ -351,29 +355,29 @@
       "type": "multi-part",
       "questions": [
         {
-          "id": "representatives_afterDeath_primary_fullName",
+          "id": "representatives_afterDeath.primary_fullName",
           "question": "Representative's full name",
           "type": "text",
           "required": true
         },
         {
-          "id": "representatives_afterDeath_hasAlternates",
+          "id": "representatives_afterDeath.hasAlternates",
           "question": "Would you like to appoint alternates if the above-named person isn't available?",
           "type": "yes-no",
           "required": true
         },
         {
-          "id": "representatives_afterDeath_alternates",
+          "id": "representatives_afterDeath.alternates",
           "type": "items",
           "label": "Alternate Representative",
           "onlyAvailableIf": {
-            "questionId": "representatives_afterDeath_hasAlternates",
+            "questionId": "representatives_afterDeath.hasAlternates",
             "answer": true
           },
           "description": "List their full names in order of preference.",
           "questions": [
             {
-              "id": "representatives_afterDeath_alternates.fullName",
+              "id": "representatives_afterDeath.alternates.fullName",
               "question": "Full name",
               "type": "text",
               "required": true
@@ -390,29 +394,29 @@
       "type": "multi-part",
       "questions": [
         {
-          "id": "representatives_healthcare_primary_fullName",
+          "id": "representatives_healthcare.primary_fullName",
           "question": "Representative's full name",
           "type": "text",
           "required": true
         },
         {
-          "id": "representatives_healthcare_hasAlternates",
+          "id": "representatives_healthcare.hasAlternates",
           "question": "Would you like to appoint alternates if the above-named person isn't available?",
           "type": "yes-no",
           "required": true
         },
         {
-          "id": "representatives_healthcare_alternates",
+          "id": "representatives_healthcare.alternates",
           "type": "items",
           "label": "Alternate Representative",
           "onlyAvailableIf": {
-            "questionId": "representatives_healthcare_hasAlternates",
+            "questionId": "representatives_healthcare.hasAlternates",
             "answer": true
           },
           "description": "List their full names in order of preference.",
           "questions": [
             {
-              "id": "representatives_healthcare_alternates.fullName",
+              "id": "representatives_healthcare.alternates.fullName",
               "question": "Full name",
               "type": "text",
               "required": true
@@ -519,7 +523,7 @@
       }
     },
     {
-      "id": "client.petsCareAmount",
+      "id": "client_petsCareAmount",
       "section": "yourWishes",
       "question": "How much would you like to allocate for their care?",
       "type": "text",
